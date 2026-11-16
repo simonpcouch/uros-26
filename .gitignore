@@ -1,0 +1,27 @@
+.Rproj.user
+.Rhistory
+.RData
+.httr-oauth
+.DS_Store
+.quarto
+/index.html
+/index_files/
+/logs/
+/plans/
+
+/.quarto/
+**/*.quarto_ipynb
+
+# Quarto render output
+**/*_cache/
+/*.html
+!/fragment-video.html
+
+# Superseded demo recordings
+/figures/old/
+
+# Figures not referenced in index.qmd or README.md
+/figures/unused/
+/figures/raw/
+
+/re-ai-26/

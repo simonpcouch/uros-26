@@ -1,0 +1,134 @@
+$version: 0.1.0
+$learn_more: https://data-dict.tidyverse.org/
+name: fia
+label: Forest Inventory and Analysis plots, Washington
+description: |-
+  USDA Forest Service Forest Inventory and Analysis (FIA) ground plots in Washington state, from the forested R package, with remotely sensed attributes for each plot and the stratum weights used for post-stratified estimation.
+details: |-
+  A small subset of plots in the U.S. are sampled and assessed on-the-ground as forested or non-forested; remotely sensed data are available for all land. Plots are measured in rotating annual panels, so each year holds a different set of plots: compare years with caution, since year-to-year differences in plot shares mostly reflect which plots were measured.
+
+  Plots are a sample of locations, not of land area. The official estimate of the share of Washington that is forested is the post-stratified estimator in Bechtold and Patterson (2005), not the share of plots that are forested.
+origin: https://github.com/simonpcouch/forested
+tables:
+  - name: plots
+    description: One row per FIA ground plot in Washington, measured between 2002 and 2022; most plots were measured from 2011 to 2020. Plot locations are perturbed slightly.
+    columns:
+      - name: forested
+        type: enum
+        values: ["Yes", "No"]
+        description: Whether the plot was classified on-the-ground as forested.
+      - name: year
+        type: number(ordinal)
+        range: [2002, 2022]
+        description: Year when the plot was classified on-the-ground as forested or not. The remaining, remotely sensed variables are measured at different times or averaged over multiple years.
+      - name: elevation
+        type: number(quantity)
+        units: m
+        range: [0, 3817]
+        description: Elevation.
+      - name: eastness
+        type: number(quantity)
+        units: index
+        range: [-100, 100]
+        description: Transformed aspect degrees to eastness.
+      - name: northness
+        type: number(quantity)
+        units: index
+        range: [-100, 100]
+        description: Transformed aspect degrees to northness.
+      - name: roughness
+        type: number(quantity)
+        units: index
+        range: [0, 376]
+        description: Degree of irregularity of the plot.
+      - name: tree_no_tree
+        type: enum
+        values: [Tree, No tree]
+        description: LANDFIRE tree/non-tree lifeform mask at the plot center. This is the post-stratification variable for FIA's post-stratified estimator.
+      - name: dew_temp
+        type: number(quantity)
+        units: °C
+        range: [-14.45, 8.56]
+        description: Mean annual dewpoint temperature, 1991-2020.
+      - name: precip_annual
+        type: number(quantity)
+        units: mm × 100
+        range: [171, 5909]
+        description: Mean annual precipitation, 1991-2020.
+      - name: temp_annual_mean
+        type: number(quantity)
+        units: °C
+        range: [-7.89, 12.63]
+        description: Mean annual temperature, 1991-2020.
+      - name: temp_annual_min
+        type: number(quantity)
+        units: °C
+        range: [-15.43, 4.5]
+        description: Mean annual minimum temperature, 1991-2020.
+      - name: temp_annual_max
+        type: number(quantity)
+        units: °C
+        range: [-2.98, 19.06]
+        description: Mean annual maximum temperature, 1991-2020.
+      - name: temp_january_min
+        type: number(quantity)
+        units: °C
+        range: [-12.81, 8.14]
+        description: Mean minimum temperature in January, 1991-2020.
+      - name: vapor_min
+        type: number(quantity)
+        units: Pa × 100
+        range: [12, 352]
+        description: Minimum annual vapor pressure deficit, 1991-2020.
+      - name: vapor_max
+        type: number(quantity)
+        units: Pa × 100
+        range: [306, 2020]
+        description: Maximum annual vapor pressure deficit, 1991-2020.
+      - name: canopy_cover
+        type: number(quantity)
+        units: "%"
+        range: [0, 92]
+        description: NLCD Analytical Tree Canopy Cover.
+      - name: lon
+        type: number(quantity)
+        units: degrees
+        range: [-124.700359, -116.945061]
+        description: Longitude of the plot center, slightly perturbed.
+      - name: lat
+        type: number(quantity)
+        units: degrees
+        range: [45.57116, 48.999397]
+        description: Latitude of the plot center, slightly perturbed.
+      - name: land_type
+        type: enum
+        values: [Tree, Non-tree vegetation, Barren]
+        description: Land cover type from the European Space Agency (ESA) 2020 WorldCover global land cover product.
+      - name: county
+        type: enum
+        values: [Adams, Asotin, Benton, Chelan, Clallam, Clark, Columbia, Cowlitz, Douglas, Ferry, Franklin, Garfield, Grant, Grays Harbor, Island, Jefferson, King, Kitsap, Kittitas, Klickitat, Lewis, Lincoln, Mason, Okanogan, Pacific, Pend Oreille, Pierce, San Juan, Skagit, Skamania, Snohomish, Spokane, Stevens, Thurston, Wahkiakum, Walla Walla, Whatcom, Whitman, Yakima]
+        description: The county in Washington containing the plot.
+  - name: strata
+    description: One row per post-stratum. The stratum weights for FIA's post-stratified estimator of forest area in Washington.
+    columns:
+      - name: stratum
+        type: enum
+        values: [Tree, No tree]
+        constraints: [primary_key]
+        description: LANDFIRE tree/non-tree lifeform class.
+      - name: weight
+        type: number(quantity)
+        units: proportion
+        range: [0.42, 0.58]
+        description: Share of Washington's land area (pixels) in the stratum, W_h. Weights sum to 1.
+relationships:
+  - join: plots.tree_no_tree = strata.stratum
+    cardinality: many-to-one
+glossary:
+  post-stratified estimator: >
+    FIA's standard estimator: the mean of plot observations within each
+    post-stratum, weighted by each post-stratum's share of the population's
+    land area (Bechtold and Patterson 2005, eqs. 4.3-4.6).
+  green book: >
+    Bechtold and Patterson (2005), The Enhanced Forest Inventory and Analysis
+    Program: National Sampling Design and Estimation Procedures (GTR SRS-80).
