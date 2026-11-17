@@ -354,7 +354,7 @@
     "href": "index.html#bluffbench-counterintuitive-plot",
     "title": "",
     "section": "",
-    "text": "Model: “There’s a strong positive relationship between carat and price!”\n\n\nCan models interpret plots that contradict their expectations?\n\n\naround a year ago we did an experiment we wanted to know how well models interpret plots we showed them plots like this one, which plots diamonds and asked them to interpret them and they said stuff like this: and that sounds good until you release: that is not …\nthis is what we wanted to know: would models correctly interpret plots that contradicted their expectations?"
+    "text": "Model: “There’s a strong positive relationship between carat and price!”\n\n\nCan models interpret plots that contradict their expectations?\n\n\nNow, I’ve said agents for data analysis should be correct and convenient. Let’s start with correctness. What are the risks to correctness? Where do these agents fail?\naround a year ago we did an experiment we wanted to know how well models interpret plots we showed them plots like this one, which plots diamonds and asked them to interpret them and they said stuff like this: and that sounds good until you release: that is not …\nthis is what we wanted to know: would models correctly interpret plots that contradicted their expectations?"
   },
   {
     "objectID": "index.html#bluffbench-november-2025",
@@ -389,7 +389,7 @@
     "href": "index.html#bluffbench2-results",
     "title": "",
     "section": "",
-    "text": "github.com/posit-dev/bluffbench2\n\n\neven frontier models don’t do very well so they’ve gotten better, but it’s not like they’ve solved data science and don’t make mistakes they still fail at this task and others that are likely to come up in data science workflows\nbut there’s another problem"
+    "text": "github.com/posit-dev/bluffbench2\n\n\neven frontier models don’t do very well so they’ve gotten better, but it’s not like they’ve solved data science and don’t make mistakes they still fail at this task and others that are likely to come up in data science workflows"
   },
   {
     "objectID": "index.html#llms-and-data-exploration",

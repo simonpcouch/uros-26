@@ -316,6 +316,9 @@ ggplot(bluffbench_diamonds, aes(x = carat, y = price)) +
 <div class="fragment plot-overlay-caption" data-fragment-index="2">Can models interpret plots that contradict their expectations?</div>
 
 ::: notes
+Now, I've said agents for data analysis should be correct _and_ convenient. Let's start with correctness. What are the risks to correctness? Where do these agents fail?
+
+
 around a year ago we did an experiment
 we wanted to know how well models interpret plots
 we showed them plots like this one, which plots diamonds and asked them to interpret them
@@ -538,14 +541,16 @@ github.com/posit-dev/bluffbench2
 even frontier models don't do very well
 so they've gotten better, but it's not like they've solved data science and don't make mistakes
 they still fail at this task and others that are likely to come up in data science workflows
-
-but there's another problem
 :::
 
 # {#subhuman-on-some-tasks .statement-slide .paper-slide}
 
 ::: {.statement}
 Large language models are still [meaningfully subhuman]{.accent} on some data science tasks.
+:::
+
+:::notes
+but there's another problem
 :::
 
 # {#context-outside-the-data .statement-slide .paper-slide}
