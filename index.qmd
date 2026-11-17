@@ -1150,7 +1150,7 @@ and it really still is bad to be wrong! correct answers, and correct answers who
 ::: {.conclusion-thesis}
 AI has expanded who can get answers from data.
 
-That changes the infrastructure we need for correct, transparent, and reproducible analysis.
+[That changes the infrastructure we need for correct, transparent, and reproducible analysis.]{style="font-weight: 400;"}
 :::
 
 ::: notes
