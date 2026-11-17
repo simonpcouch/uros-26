@@ -647,19 +647,6 @@ full citations, in case anyone asks:
 - Phillippi, C. (2026, August 7). ["Auto mode is now the default in Claude Code for Pro, Max, and Team plans."](https://claude.com/blog/auto-mode-default-in-claude-code) Claude by Anthropic.
 :::
 
-# {#people-are-not-fixed .statement-slide .paper-slide}
-
-::: {.statement}
-People are [not fixed safety components.]{.accent}
-:::
-
-::: notes
-because people are not fixed safety components 
-we can't just slot them in whenever we are worried an agent system might be wrong
-
-that doesn't mean they shouldn't be there! but we need to go further 
-:::
-
 # {#design-the-entire-system .beat-slide}
 
 [How do we design the entire system to produce correct work?]{.fragment}
