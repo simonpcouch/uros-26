@@ -275,6 +275,16 @@ bluff2_summary <-
 ```
 
 
+## 👋 {#about-me .paper-slide}
+
+<br>
+
+![](figures/oz-rebalanced-2.png){fig-align="center" style="width: 450px; height: 450px; object-fit: cover; border-radius: 50%; margin: 0;"}
+
+:::footer
+simonpcouch.com
+:::
+
 ## {#bluffbench-counterintuitive-plot .paper-slide}
 
 ::: {.plot-slide-content .fragment data-fragment-index="0"}

@@ -579,5 +579,12 @@
     "title": "",
     "section": "",
     "text": "what percentage of Washington is forested?\n      \n    \n    \n      \n        \n          ⌕\n          Finding a relevant R packageforested\n          ✓\n        \n        \n          R\n          table(forested$forested)#&gt;  Yes   No\n#&gt; 3894 3213\n          ✓\n        \n        \n          R\n          mean(forested$forested == \"Yes\")#&gt; [1] 0.548\n          ✓\n        \n      \n    \n    \n      \n        About 55% of Washington is forested, based on 7,107 Forest Service survey plots.\n      \n    \n  \n\n\nlet’s go back to that policy advisor easy to say… but they are curious too! they had a question and reached for the tool that was accessible to them.\nUnfortunately, the answer they got was wrong.\nA raw mean over every plot in every year isn’t how the Forest Service estimates forest cover…their statisticians have code they use to compute the post-stratified estimate that gives them the correct results, and they vet and maintain this"
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "",
+    "section": "👋",
+    "text": "👋\n\n\n\n\n\n\n\nsimonpcouch.com"
   }
 ]
