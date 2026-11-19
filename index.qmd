@@ -687,15 +687,27 @@ Our flagship agent is Posit Assistant. Posit Assistant is a coding and data scie
 assistant.posit.co
 :::
 
-## {#flight-delay-demo}
+## forested::forested {#forested-map .paper-slide}
 
-:::notes
-In thinking through how to demo out Posit Assistant, I thought about how Sara described her first moments of really getting the hang of data science tools as like seeing below the surface. I think many of us might have had a moment like this at some point, when we began to understand how powerful data science and statistics are for answering questions about the world.
+```{r}
+#| echo: false
+#| fig-align: center
+#| fig-alt: "A map of Washington state made of survey plot points colored by whether each plot is forested. Western Washington and the northeast are mostly forested; the central and southeastern parts of the state are mostly not."
+#| fig-width: 12
+#| fig-height: 7.5
+#| fig-bg: "#f3eee8"
+#| out-width: "85%"
+library(forested)
 
-The first time I felt this way, I had been asked to use R to understand what affects flight delays. I had to load in some data and then write dplyr and ggplot to see if I could make any decisions that would give me better chances of my flight leaving on time. 
-
-In demoing Posit Assistant, I thought I might revisit that moment with you. 
-:::
+ggplot(forested, aes(x = lon, y = lat, color = forested)) +
+  geom_point(size = 1.5) +
+  scale_color_manual(
+    name = "Forested",
+    values = c("Yes" = "#79b8a8", "No" = "#d9b38c")
+  ) +
+  coord_quickmap() +
+  guides(color = guide_legend(override.aes = list(size = 5)))
+```
 
 ## {#posit-assistant-full-window}
 
