@@ -707,9 +707,9 @@ The first time I felt this way, I had been asked to use R to understand what aff
 In demoing Posit Assistant, I thought I might revisit that moment with you. 
 :::
 
-## {#posit-assistant-web-fetch-start}
+## {#posit-assistant-full-window}
 
-![](figures/pa-01-webfetch-first-frame.png){.rounded .nostretch width="100%"}
+![](figures/pa-01-webfetch-full-window.png){.rounded .nostretch width="100%"}
 
 ## {#posit-assistant-web-fetch}
 

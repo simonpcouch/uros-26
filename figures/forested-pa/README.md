@@ -15,7 +15,7 @@ Effects are anchored to event times in `pa_events()`, measured from frame differ
 
 | Clip | Edited like |
 |---|---|
-| `pa-01-webfetch` (`-a`, `-b`, first frame) | `01-pa-demo-webfetch` |
+| `pa-01-webfetch` (`-a`, `-b`, full window, first frame) | `01-pa-demo-webfetch` |
 | `pa-02-docs` (`-a`, `-b`) | `02-pa-demo-docs` |
 | `pa-03-clean-data` (`-a` to `-d`) | `03-pa-demo-clean-data` |
 | `pa-05-plot` (`-a` to `-c`) | `05-pa-demo-carriers` |

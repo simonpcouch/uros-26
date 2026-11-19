@@ -15,6 +15,14 @@ edit_pa_demos <- function(
   for (clip in pa_clips(ev, costs, fps)) {
     render_pa_clip(clip, raw, output_dir, full_dir, fps)
   }
+  # The full window at 01's first frame, shown before cutting to its zoom. The
+  # recording runs 82 px past the window's right edge, in black.
+  first_frame(
+    raw,
+    file.path(output_dir, "pa-01-webfetch-full-window.png"),
+    time = ev$typed1,
+    filter = "crop=3316:ih:0:0"
+  )
   first_frame(
     file.path(output_dir, "pa-01-webfetch-a.mp4"),
     file.path(output_dir, "pa-01-webfetch-first-frame.png")
@@ -247,10 +255,12 @@ split_video <- function(path, cuts, prefix, drop_tail = FALSE) {
   }
 }
 
-first_frame <- function(video, output) {
+first_frame <- function(video, output, time = 0, filter = NULL) {
   status <- system2("ffmpeg", c(
     "-hide_banner", "-loglevel", "error", "-y",
-    "-i", shQuote(video), "-frames:v", "1", shQuote(output)
+    "-ss", time, "-i", shQuote(video),
+    if (!is.null(filter)) c("-vf", shQuote(filter)),
+    "-frames:v", "1", shQuote(output)
   ))
   if (!identical(status, 0L)) {
     cli::cli_abort("FFmpeg failed to write {.file {output}}.")
